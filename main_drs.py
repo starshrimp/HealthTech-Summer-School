@@ -4,45 +4,45 @@ import requests
 st.title("Doctor Questionnaire for Predicting Adhesion Risk")
 
 # Type of Surgery Planned
-surgery_type = st.selectbox("Type of Surgery Planned", ["Diagnostic endoscopy", "Therapeutic endoscopy", "Laparoscopic surgery", "Open abdominal surgery", "Other"], index="Laparoscopic surgery")
+surgery_type = st.selectbox("Type of Surgery Planned", ["Diagnostic endoscopy", "Therapeutic endoscopy", "Laparoscopic surgery", "Open abdominal surgery", "Other"], index=2)
 
 # Estimated Duration of Surgery (in hours)
-duration = st.number_input("Estimated Duration of Surgery (in hours)", value = 90, min_value=0.0, step=0.1)
+duration = st.number_input("Estimated Duration of Surgery (in hours)", value=1.5, min_value=0.0, step=0.1)
 
 # Emergency Surgery
-emergency = st.radio("Is the surgery being performed as an emergency?", ["Yes", "No"], index="No")
+emergency = st.radio("Is the surgery being performed as an emergency?", ["Yes", "No"], index=1)
 
 # Extent of Surgical Intervention
-intervention_extent = st.selectbox("Extent of Surgical Intervention", ["Minor", "Moderate", "Extensive"], index="Minor")
+intervention_extent = st.selectbox("Extent of Surgical Intervention", ["Minor", "Moderate", "Extensive"], index=0)
 
 # Planned Use of Anti-Adhesion Barriers
-anti_adhesion_barriers = st.radio("Planned Use of Anti-Adhesion Barriers", ["Yes", "No"], index="Yes")
+anti_adhesion_barriers = st.radio("Planned Use of Anti-Adhesion Barriers", ["Yes", "No"], index=0)
 
 # Expected Blood Loss (ml)
-blood_loss = st.number_input("Expected Blood Loss (ml)", value= 15, min_value=0, step=1)
+blood_loss = st.number_input("Expected Blood Loss (ml)", value=15, min_value=0, step=1)
 
 # Presence of Pre-existing Adhesions Identified in Imaging
-pre_existing_adhesions = st.radio("Presence of Pre-existing Adhesions Identified in Imaging?", ["Yes", "No"], index="No")
+pre_existing_adhesions = st.radio("Presence of Pre-existing Adhesions Identified in Imaging?", ["Yes", "No"], index=1)
 
 # Previous Surgeries in the Same Area
-previous_area_surgeries = st.radio("Previous Surgeries in the Same Area?", ["Yes", "No"], index="Yes")
+previous_area_surgeries = st.radio("Previous Surgeries in the Same Area?", ["Yes", "No"], index=0)
 
 # Patient's BMI (Body Mass Index)
-bmi = st.number_input("Patient's BMI (Body Mass Index)", value = 24, min_value=0.0, step=0.1)
+bmi = st.number_input("Patient's BMI (Body Mass Index)", value=24.0, min_value=0.0, step=0.1)
 
 # Planned Use of Medications Known to Influence Adhesion Formation
-medications_influence_adhesions = st.radio("Any planned use of medications known to influence adhesion formation (e.g., steroids, anticoagulants)?", ["Yes", "No"], index="No")
+medications_influence_adhesions = st.radio("Any planned use of medications known to influence adhesion formation (e.g., steroids, anticoagulants)?", ["Yes", "No"], index=1)
 if medications_influence_adhesions == "Yes":
     medication_details = st.text_input("If yes, please specify:", key="medication_details")
 
 # Surgeon's Experience Level
-surgeon_experience = st.selectbox("Surgeon's experience level with the specific procedure", ["Novice", "Intermediate", "Expert"], index="Expert")
+surgeon_experience = st.selectbox("Surgeon's experience level with the specific procedure", ["Novice", "Intermediate", "Expert"], index=2)
 
 # Intraoperative Complications Anticipated
-anticipated_complications = st.radio("Intraoperative Complications Anticipated?", ["Yes", "No"], index="No")
+anticipated_complications = st.radio("Intraoperative Complications Anticipated?", ["Yes", "No"], index=1)
 
 # Presence of Co-morbid Conditions Affecting Healing
-co_morbid_conditions = st.radio("Presence of Co-morbid Conditions Affecting Healing?", ["Yes", "No"], index="No")
+co_morbid_conditions = st.radio("Presence of Co-morbid Conditions Affecting Healing?", ["Yes", "No"], index=1)
 if co_morbid_conditions == "Yes":
     conditions_details = st.text_input("If yes, please specify:", key="conditions_details")
 
@@ -50,7 +50,7 @@ if co_morbid_conditions == "Yes":
 postoperative_care = st.text_input("Plan for Postoperative Care (e.g., early mobilization, specific diet)", key="postoperative_care")
 
 # Difficulty of Planned Surgery
-surgery_difficulty = st.selectbox("Rate the difficulty of the planned surgery", ["Low", "Medium", "High"], index="Medium")
+surgery_difficulty = st.selectbox("Rate the difficulty of the planned surgery", ["Low", "Medium", "High"], index=1)
 
 # Submit Button
 if st.button("Submit"):
