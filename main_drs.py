@@ -85,7 +85,7 @@ if st.button("Submit"):
 
         # Display Summary
     summary_patient = f"""
-    ### Summary of Your Responses
+    ### Summary of Patients' Responses
     - **Age:** 27
     - **Gender:** Female
     - **Height:** 168.0 cm
@@ -102,7 +102,7 @@ if st.button("Submit"):
 
 
     summary = f"""
-    ### Summary of Your Responses
+    ### Summary of Doctors' Responses
     - **Type of Surgery Planned:** {surgery_type}
     - **Estimated Duration of Surgery:** {duration} hours
     - **Emergency Surgery:** {emergency}
