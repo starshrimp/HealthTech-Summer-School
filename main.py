@@ -6,7 +6,7 @@ st.title("Patient Questionnaire for Predicting Adhesion Risk")
 age = st.number_input("What is your age?", min_value=0, max_value=120, step=1)
 
 # Gender
-gender = st.selectbox("What is your gender?", ["Male", "Female", "Other"])
+gender = st.selectbox("What is your gender?", ["Male", "Female", "Other"], index=None)
 
 # Height
 height = st.number_input("What is your height in centimeters?", min_value=0.0, step=0.1)
@@ -15,38 +15,38 @@ height = st.number_input("What is your height in centimeters?", min_value=0.0, s
 weight = st.number_input("What is your weight in kilograms?", min_value=0.0, step=0.1)
 
 # Previous Abdominal Surgery
-previous_surgery = st.radio("Have you previously undergone abdominal surgery?", ["Yes", "No"])
+previous_surgery = st.radio("Have you previously undergone abdominal surgery?", ["Yes", "No"], index=None)
 if previous_surgery == "Yes":
     number_of_surgeries = st.number_input("If yes, how many abdominal surgeries have you had?", min_value=0, step=1)
 
 # Smoking
-smokes = st.radio("Do you smoke?", ["Yes", "No"])
+smokes = st.radio("Do you smoke?", ["Yes", "No"], index=None)
 if smokes == "Yes":
     cigarettes_per_day = st.number_input("If yes, how many cigarettes do you smoke per day?", min_value=0, step=1)
 
 # Alcohol Consumption
-alcohol = st.radio("Do you consume alcohol?", ["Yes", "No"])
+alcohol = st.radio("Do you consume alcohol?", ["Yes", "No"], index=None)
 if alcohol == "Yes":
     units_per_week = st.number_input("If yes, how many units of alcohol do you consume per week?", min_value=0, step=1)
 
 # Chronic Diseases
-chronic_diseases = st.radio("Do you have any chronic diseases? (e.g., diabetes, hypertension)", ["Yes", "No"])
+chronic_diseases = st.radio("Do you have any chronic diseases? (e.g., diabetes, hypertension)", ["Yes", "No"], index=None)
 if chronic_diseases == "Yes":
     diseases_list = st.text_input("If yes, please specify:")
 
 # Family History of Adhesions
-family_history = st.radio("Do you have a family history of adhesions or related complications?", ["Yes", "No"])
+family_history = st.radio("Do you have a family history of adhesions or related complications?", ["Yes", "No"], index=None)
 
 # Abdominal Infections
-abdominal_infection = st.radio("Have you ever had an infection in the abdominal area?", ["Yes", "No"])
+abdominal_infection = st.radio("Have you ever had an infection in the abdominal area?", ["Yes", "No"], index=None)
 
 # Medication
-medication = st.radio("Do you regularly take any medication?", ["Yes", "No"])
+medication = st.radio("Do you regularly take any medication?", ["Yes", "No"], index=None)
 if medication == "Yes":
     medication_list = st.text_input("If yes, please list:")
 
 # Physical Activity Level
-physical_activity = st.selectbox("Rate your level of physical activity:", ["Sedentary", "Lightly active", "Moderately active", "Very active"])
+physical_activity = st.selectbox("Rate your level of physical activity:", ["Sedentary", "Lightly active", "Moderately active", "Very active"], index=None)
 
 # Submit Button
 if st.button("Submit"):
