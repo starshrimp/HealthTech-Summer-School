@@ -10,10 +10,10 @@ age = st.number_input("What is your age?", value=27, min_value=0, max_value=120,
 gender = st.selectbox("What is your gender?", ["Male", "Female", "Other"], index=1)
 
 # Height
-height = st.number_input("What is your height in centimeters?", value=168, min_value=0.0, step=0.1)
+height = st.number_input("What is your height in centimeters?", value=1.68, min_value=0.0, step=0.1)
 
 # Weight
-weight = st.number_input("What is your weight in kilograms?", value=58, min_value=0.0, step=0.1)
+weight = st.number_input("What is your weight in kilograms?", value=58.0, min_value=0.0, step=0.1)
 
 # Previous Abdominal Surgery
 previous_surgery = st.radio("Have you previously undergone abdominal surgery?", ["Yes", "No"], index=0)
