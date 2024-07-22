@@ -83,30 +83,24 @@ if st.button("Submit"):
     else:
         st.error(f"Failed to submit form. Status code: {response.status_code}")
 
-    # Display Summary
-    st.write("### Summary of Your Responses")
-    st.write(f"Type of Surgery Planned: {surgery_type}")
-    st.write(f"Estimated Duration of Surgery: {duration} hours")
-    st.write(f"Emergency Surgery: {emergency}")
-    st.write(f"Extent of Surgical Intervention: {intervention_extent}")
-    st.write(f"Planned Use of Anti-Adhesion Barriers: {anti_adhesion_barriers}")
-    st.write(f"Expected Blood Loss: {blood_loss} ml")
-    st.write(f"Pre-existing Adhesions Identified: {pre_existing_adhesions}")
-    st.write(f"Previous Surgeries in the Same Area: {previous_area_surgeries}")
-    st.write(f"Patient's BMI: {bmi}")
-    
-    if medications_influence_adhesions == "Yes":
-        st.write(f"Medications Influencing Adhesion Formation: {medication_details}")
-    else:
-        st.write("Medications Influencing Adhesion Formation: No")
-    
-    st.write(f"Surgeon's Experience Level: {surgeon_experience}")
-    st.write(f"Intraoperative Complications Anticipated: {anticipated_complications}")
-    
-    if co_morbid_conditions == "Yes":
-        st.write(f"Co-morbid Conditions Affecting Healing: {conditions_details}")
-    else:
-        st.write("Co-morbid Conditions Affecting Healing: No")
-    
-    st.write(f"Plan for Postoperative Care: {postoperative_care}")
-    st.write(f"Difficulty of Planned Surgery: {surgery_difficulty}")
+    summary = f"""
+    ### Summary of Your Responses
+    - **Type of Surgery Planned:** {surgery_type}
+    - **Estimated Duration of Surgery:** {duration} hours
+    - **Emergency Surgery:** {emergency}
+    - **Extent of Surgical Intervention:** {intervention_extent}
+    - **Planned Use of Anti-Adhesion Barriers:** {anti_adhesion_barriers}
+    - **Expected Blood Loss:** {blood_loss} ml
+    - **Pre-existing Adhesions Identified:** {pre_existing_adhesions}
+    - **Previous Surgeries in the Same Area:** {previous_area_surgeries}
+    - **Patient's BMI:** {bmi}
+    - **Medications Influencing Adhesion Formation:** {'Yes, ' + medication_details if medications_influence_adhesions == "Yes" else "No"}
+    - **Surgeon's Experience Level:** {surgeon_experience}
+    - **Intraoperative Complications Anticipated:** {anticipated_complications}
+    - **Co-morbid Conditions Affecting Healing:** {'Yes, ' + conditions_details if co_morbid_conditions == "Yes" else "No"}
+    - **Plan for Postoperative Care:** {postoperative_care}
+    - **Difficulty of Planned Surgery:** {surgery_difficulty}
+    """
+
+    st.success(summary)
+

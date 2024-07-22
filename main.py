@@ -96,5 +96,38 @@ if st.button("Submit"):
     - **Medication:** {'Yes, ' + medication_list if medication == "Yes" else "No"}
     - **Physical Activity Level:** {physical_activity}
     """
-    
+    # Display Summary
+    summary_patient = f"""
+    ### Summary of Your Responses
+    - **Age:** 27
+    - **Gender:** Female
+    - **Height:** 168.0 cm
+    - **Weight:** 58.0 kg
+    - **Previous Abdominal Surgeries:** No
+    - **Smokes:** No
+    - **Consumes Alcohol:** Yes, 2 units per week
+    - **Chronic Diseases:** No
+    - **Family History of Adhesions:** No
+    - **Abdominal Infection:** No
+    - **Medication:** No
+    - **Physical Activity Level:** Moderately active
+    """
+
+    st.info(summary_patient)
     st.success(summary)
+
+    st.title("Surgery Risk Evaluation System for Adhesion-Free Endoscopies")
+
+    fixed_value = 74
+
+    # Display the fixed value
+    st.write("Risk of Development of Abdominal Adhesions:", fixed_value)
+
+    # Optionally, show a visual representation (like a progress bar)
+    st.progress(fixed_value)
+    st.write("This prediction highlights the need for heightened vigilance and targeted preventive strategies. The high risk is often associated with factors such as prior abdominal surgeries and a predisposition to inflammatory responses. Recognizing this risk prior to surgery allows doctors to adjust their preventive measures accordingly. Implementing adhesion barriers, employing meticulous surgical techniques to minimize tissue trauma, and planning comprehensive postoperative care focused on reducing inflammation are crucial steps. These measures aim to reduce the likelihood of adhesions, thereby promoting a smoother recovery and minimizing potential complications.")
+
+    image_path = "SHAP.png"
+
+    st.image(image_path, caption='Example Image', use_column_width=True)
+
