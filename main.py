@@ -81,38 +81,20 @@ if st.button("Submit"):
         st.error(f"Failed to submit form. Status code: {response.status_code}")
 
     # Display Summary
-    st.write("### Summary of Your Responses")
-    st.write(f"Age: {age}")
-    st.write(f"Gender: {gender}")
-    st.write(f"Height: {height} cm")
-    st.write(f"Weight: {weight} kg")
+    summary = f"""
+    ### Summary of Your Responses
+    - **Age:** {age}
+    - **Gender:** {gender}
+    - **Height:** {height} cm
+    - **Weight:** {weight} kg
+    - **Previous Abdominal Surgeries:** {'Yes, ' + str(number_of_surgeries) if previous_surgery == "Yes" else "No"}
+    - **Smokes:** {'Yes, ' + str(cigarettes_per_day) + ' cigarettes per day' if smokes == "Yes" else "No"}
+    - **Consumes Alcohol:** {'Yes, ' + str(units_per_week) + ' units per week' if alcohol == "Yes" else "No"}
+    - **Chronic Diseases:** {'Yes, ' + diseases_list if chronic_diseases == "Yes" else "No"}
+    - **Family History of Adhesions:** {family_history}
+    - **Abdominal Infection:** {abdominal_infection}
+    - **Medication:** {'Yes, ' + medication_list if medication == "Yes" else "No"}
+    - **Physical Activity Level:** {physical_activity}
+    """
     
-    if previous_surgery == "Yes":
-        st.write(f"Previous Abdominal Surgeries: {number_of_surgeries}")
-    else:
-        st.write("Previous Abdominal Surgeries: No")
-    
-    if smokes == "Yes":
-        st.write(f"Cigarettes per Day: {cigarettes_per_day}")
-    else:
-        st.write("Smokes: No")
-    
-    if alcohol == "Yes":
-        st.write(f"Units of Alcohol per Week: {units_per_week}")
-    else:
-        st.write("Consumes Alcohol: No")
-    
-    if chronic_diseases == "Yes":
-        st.write(f"Chronic Diseases: {diseases_list}")
-    else:
-        st.write("Chronic Diseases: No")
-    
-    st.write(f"Family History of Adhesions: {family_history}")
-    st.write(f"Abdominal Infection: {abdominal_infection}")
-    
-    if medication == "Yes":
-        st.write(f"Medication: {medication_list}")
-    else:
-        st.write("Medication: No")
-    
-    st.write(f"Physical Activity Level: {physical_activity}")
+    st.success(summary)
