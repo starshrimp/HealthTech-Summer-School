@@ -1,10 +1,10 @@
 import streamlit as st
 import requests
 
-st.title("Doctor Questionnaire for Predicting Adhesion Risk")
+st.title("Surgeons Questionnaire for Predicting Adhesion Risk")
 
 # Type of Surgery Planned
-surgery_type = st.selectbox("Type of Surgery Planned", ["Diagnostic endoscopy", "Therapeutic endoscopy", "Laparoscopic surgery", "Open abdominal surgery", "Other"], index=2)
+surgery_type = st.selectbox("Type of Surgery Planned", ["Diagnostic endoscopy", "Therapeutic endoscopy", "Laparoscopic surgery", "Other"], index=2)
 
 # Estimated Duration of Surgery (in hours)
 duration = st.number_input("Estimated Duration of Surgery (in hours)", value=1.5, min_value=0.0, step=0.1)
@@ -75,13 +75,13 @@ if st.button("Submit"):
         "surgery_difficulty": surgery_difficulty
     }
     
-    # Sending POST request
-    response = requests.post("https://hook.eu2.make.com/lxxwvlmie4yq4834xpq4pur3yjupct9b", json=form_data)
+    # # Sending POST request
+    # response = requests.post("https://hook.eu2.make.com/lxxwvlmie4yq4834xpq4pur3yjupct9b", json=form_data)
     
-    if response.status_code == 200:
-        st.success("Form submitted successfully!")
-    else:
-        st.error(f"Failed to submit form. Status code: {response.status_code}")
+    # if response.status_code == 200:
+    #     st.success("Form submitted successfully!")
+    # else:
+    #     st.error(f"Failed to submit form. Status code: {response.status_code}")
 
         # Display Summary
     summary_patient = f"""
@@ -119,7 +119,7 @@ if st.button("Submit"):
     - **Plan for Postoperative Care:** {postoperative_care}
     - **Difficulty of Planned Surgery:** {surgery_difficulty}
     """
-
+    st.success("Form submitted successfully!")
     st.info(summary_patient)
     st.success(summary)
 

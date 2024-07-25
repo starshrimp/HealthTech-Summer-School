@@ -73,7 +73,7 @@ if st.button("Submit"):
     }
     
     # Sending POST request
-    response = requests.post("https://hook.eu2.make.com/lxxwvlmie4yq4834xpq4pur3yjupct9b", json=form_data)
+    response = requests.post("https://hook.eu2.make.com/jzfdsf3c4zi7hk317v3ayakh5jf7nqeh", json=form_data)
     
     if response.status_code == 200:
         st.success("Form submitted successfully!")
